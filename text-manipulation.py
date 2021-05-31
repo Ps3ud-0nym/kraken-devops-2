@@ -1,8 +1,13 @@
 #!/usr/bin/env python
 
-import pandas
+import re
 
-file = pandas.read_csv("/etc/hosts",comment='#')
+pattern = "docker"
 
-for col in file.columns:
-    print(col[1])
+file = open("/etc/hosts", "r")
+
+#re.findall(pattern, file)
+for word in file:
+    if re.search(pattern, word):
+        print(word)
+
