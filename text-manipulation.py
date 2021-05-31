@@ -1,13 +1,22 @@
 #!/usr/bin/env python
+def my_function():
 
-import re
 
-pattern = "docker"
+    with open("/etc/hosts",'r') as f:
+      text = f.read()
+      result_string = ''
 
-file = open("/etc/hosts", "r")
+      words = ["docker"]
+      text2 = text.split()
+      for itemIndex in range(len(text2)):
+          for word in words:
+              if word in text2[itemIndex]:
+                  if text2[itemIndex][0] ==' ':
+                      print(text2[itemIndex][1:])
+                      break
+                  else:
+                      print(text2[itemIndex])
+                      break
+      print(result_string)
 
-#re.findall(pattern, file)
-for word in file:
-    if re.search(pattern, word):
-        print(word)
-
+my_function()
